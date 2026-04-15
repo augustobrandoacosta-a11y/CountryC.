@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Country Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <section id="stage1" class="stage">
+            <h2>Step 1: Draw your Country's Shape</h2>
+            <canvas id="landCanvas" width="500" height="400"></canvas>
+            <div class="controls">
+                <button onclick="clearCanvas('landCanvas')">Clear</button>
+                <button onclick="nextStage(2)">Next: Design Flag</button>
+            </div>
+        </section>
+
+        <section id="stage2" class="stage" style="display:none;">
+            <h2>Step 2: Design the Flag</h2>
+            <canvas id="flagCanvas" width="300" height="200"></canvas>
+            <div class="controls">
+                <input type="file" id="imageLoader" accept="image/*">
+                <button onclick="clearCanvas('flagCanvas')">Clear</button>
+                <button onclick="nextStage(3)">Next: Final Details</button>
+            </div>
+        </section>
+
+        <section id="stage3" class="stage" style="display:none;">
+            <h2>Step 3: Country Identity</h2>
+            <input type="text" id="countryName" placeholder="Country Name">
+            <select id="continent">
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Oceania">Oceania</option>
+                <option value="Antarctica">Antarctica</option>
+            </select>
+            <button onclick="finishCountry()">Create Country!</button>
+        </section>
+
+        <section id="finalResult" class="stage" style="display:none;">
+            <h1 id="display-name"></h1>
+            <p id="display-continent"></p>
+            <div id="final-visuals">
+                <img id="finalLand" alt="Country Shape">
+                <img id="finalFlag" alt="Flag">
+            </div>
+            <button onclick="location.reload()">Make Another</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
